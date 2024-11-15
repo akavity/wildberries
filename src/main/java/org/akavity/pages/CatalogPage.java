@@ -6,17 +6,9 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 
 public class CatalogPage {
-    private final SelenideElement mailListElement = $(By.cssSelector("ul[class='menu-burger__main-list']"));
+    private final SelenideElement tileField = $(By.cssSelector("h1[class='catalog-title']"));
 
-    public SelenideElement getMainListItem(String item) {
-        return $(By.xpath("//ul[contains(@class,'main-list')]//a[.='" + item + "']/.."));
-    }
-
-    public SelenideElement getDropListItem(String item) {
-        return $(By.xpath("//div[@data-menu-id='306']//a[.='" + item + "']/.."));
-    }
-
-    public SelenideElement getMailListElement() {
-        return mailListElement;
+    public SelenideElement getTileField() {
+        return tileField;
     }
 }
