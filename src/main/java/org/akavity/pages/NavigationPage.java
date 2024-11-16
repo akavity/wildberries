@@ -12,10 +12,15 @@ public class NavigationPage {
         return $(By.xpath("//ul[contains(@class,'main-list')]//a[.='" + item + "']/.."));
     }
 
-    public SelenideElement getDropListItem(String item) {
-        return $(By.xpath("//div[@data-menu-id='306']//a[contains(text(),'" + item + "')]/.. | //div[@data-menu-id='306']//span[contains(text(),'" + item + "')]"));
+    public SelenideElement getFirstDropListItem(String item) {
+        return $(By.xpath("//div[@data-menu-id='306']//div[contains(@class,'burger__first')]//a[.='" + item + "'] " +
+                "| //div[@data-menu-id='306']//div[contains(@class,'burger__first')]//span[.='" + item + "']"));
     }
-    //div[@data-menu-id='306']//a[.='" + item + "']/.. | //div[@data-menu-id='306']//span[.='" + item + "']
+
+    public SelenideElement getSecondDropListItem(String item) {
+        return $(By.xpath("//div[@data-menu-id='306']//div[contains(@class,'burger__second')]//a[contains(text(),'" + item + "')]"));
+    }
+
     public SelenideElement getDropListTitle(String title) {
         return $(By.xpath("//div[@data-menu-id='306']//span[contains(@class,'title-name') and contains(text(),'" + title + "')]"));
     }
