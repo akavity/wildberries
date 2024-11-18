@@ -2,8 +2,8 @@
 
 ## General info:
 
-* Test 1. Move around the catalog.
-
+* Test 1. Catalog navigation.
+* Test 2. Checking product sorting by price.
 
 ## Technologies:
 
