@@ -22,7 +22,7 @@ public class NewTest extends BaseTest {
     public void catalogNavigation(CatalogData catalog) {
         headerSteps.clickCatalogButton();
         navigationSteps.clickMainListItem(catalog.getMainListItem());
-        navigationSteps.clickDropListItem(catalog.getFirstDropListItem(), catalog.getSecondDropListItem());
+        navigationSteps.clickDropListItem(catalog.getMainListItem(), catalog.getFirstDropListItem(), catalog.getSecondDropListItem());
 
         String actual = catalogSteps.extractTextFromTitle();
         Assert.assertEquals(actual, catalog.getTitle());
@@ -33,7 +33,7 @@ public class NewTest extends BaseTest {
     public void sortProductsByPrice(PriceData price) {
         headerSteps.clickCatalogButton();
         navigationSteps.clickMainListItem(price.getMainListItem());
-        navigationSteps.clickDropListItem(price.getFirstDropListItem(), price.getSecondDropListItem());
+        navigationSteps.clickDropListItem(price.getMainListItem(), price.getFirstDropListItem(), price.getSecondDropListItem());
         filterDDSteps.clickButtonDDF(price.getButton());
         filterDDSteps.enterMinMaxAmount(price.getMinPrice(), price.getMaxPrice());
 

@@ -18,15 +18,15 @@ public class NavigationSteps {
     }
 
     @Step
-    public void clickDropListItem(String item1, String item2) {
-        log.info("Click first item of drop list: {}", item1);
-        navigationPage.getFirstDropListItem(item1).click();
-        if (item2.equalsIgnoreCase("no")) {
+    public void clickDropListItem(String itemML, String itemDL1, String itemDL2) {
+        log.info("Click first item of drop list: {}", itemDL1);
+        navigationPage.getFirstDropListItem(itemML, itemDL1).click();
+        if (itemDL2.equalsIgnoreCase("no")) {
             log.info("Drop list doesn't have second item");
         } else {
-            log.info("Drop list have second item: {}", item2);
-            navigationPage.getDropListTitle(item1).shouldBe(visible);
-            navigationPage.getSecondDropListItem(item2).click();
+            log.info("Drop list have second item: {}", itemDL2);
+            navigationPage.getDropListTitle(itemML, itemDL1).shouldBe(visible);
+            navigationPage.getSecondDropListItem(itemML, itemDL2).click();
         }
     }
 }

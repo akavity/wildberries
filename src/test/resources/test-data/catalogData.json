@@ -4,5 +4,17 @@
     "firstDropListItem": "Свадьба",
     "secondDropListItem": "Свадебные платья",
     "title": "Свадебные платья"
+  },
+  {
+    "mainListItem": "Детям",
+    "firstDropListItem": "Для новорожденных",
+    "secondDropListItem": "Белье",
+    "title": "Белье для новорожденных"
+  },
+  {
+    "mainListItem": "Обувь",
+    "firstDropListItem": "Мужская",
+    "secondDropListItem": "Ботинки и полуботинки",
+    "title": "Мужские ботинки и полуботинки"
   }
 ]
