@@ -37,4 +37,13 @@ public class FilterDropDownSteps {
         log.info("Click \"Price is ready\" button");
         filter.getPriceReadyButtonDDF().click();
     }
+
+    @Step
+    public void enterMinMaxAmount(String min, String max) {
+        log.info("Enter min {} and max {} amount", min, max);
+        filter.getMinPriceDDF().setValue(min);
+        filter.getMaxPriceDDF().setValue(max);
+        log.info("Click submit button");
+        filter.getPriceReadyButtonDDF().click();
+    }
 }
