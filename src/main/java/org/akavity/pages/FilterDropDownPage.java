@@ -6,31 +6,31 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 
 public class FilterDropDownPage {
-    private final SelenideElement minPriceDDF = $(By.cssSelector("div[class*='filter__price'] input[name*='start']"));
-    private final SelenideElement maxPriceDDF = $(By.cssSelector("div[class*='filter__price'] input[name*='end']"));
-    private final SelenideElement priceReadyButtonDDF = $(By.xpath("//button[contains(@class,'filter-btn') and contains(.,'Готово')]"));
+    private final SelenideElement minPrice = $(By.cssSelector("div[class*='filter__price'] input[name*='start']"));
+    private final SelenideElement maxPrice = $(By.cssSelector("div[class*='filter__price'] input[name*='end']"));
+    private final SelenideElement priceReadyButton = $(By.xpath("//button[contains(@class,'filter-btn') and contains(.,'Готово')]"));
 
-    public SelenideElement getButtonDDF(String name) {
+    public SelenideElement getButton(String name) {
         return $(By.xpath("//div[contains(@class,'filter__btn') and contains(.,'" + name + "')]"));
     }
 
-    public SelenideElement getRadioButtonDDF(String name) {
+    public SelenideElement getRadioButton(String name) {
         return $(By.xpath("//span[contains(@class,'radio-with-text') and contains(.,'" + name + "')]"));
     }
 
-    public SelenideElement getCheckBoxDDF(String name) {
+    public SelenideElement getCheckBox(String name) {
         return $(By.xpath("//span[@class='checkbox-with-text__text' and .='" + name + "']"));
     }
 
-    public SelenideElement getMinPriceDDF() {
-        return minPriceDDF;
+    public SelenideElement getMinPrice() {
+        return minPrice;
     }
 
-    public SelenideElement getMaxPriceDDF() {
-        return maxPriceDDF;
+    public SelenideElement getMaxPrice() {
+        return maxPrice;
     }
 
-    public SelenideElement getPriceReadyButtonDDF() {
-        return priceReadyButtonDDF;
+    public SelenideElement getPriceReadyButton() {
+        return priceReadyButton;
     }
 }

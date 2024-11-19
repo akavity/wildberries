@@ -11,39 +11,39 @@ public class FilterDropDownSteps {
     @Step
     public void clickButtonDDF(String button) {
         log.info("Click dropdown-filter button: {}", button);
-        filter.getButtonDDF(button).hover().click();
+        filter.getButton(button).hover().click();
     }
 
     @Step
     public void selectSortType(String type) {
         log.info("Select sort type: {}", type);
-        filter.getRadioButtonDDF(type).click();
+        filter.getRadioButton(type).click();
     }
 
     @Step
     public void enterMinAmount(String min) {
         log.info("Enter min amount: {}", min);
-        filter.getMinPriceDDF().setValue(min);
+        filter.getMinPrice().setValue(min);
     }
 
     @Step
     public void enterMaxAmount(String max) {
         log.info("Enter max amount: {}", max);
-        filter.getMaxPriceDDF().setValue(max);
+        filter.getMaxPrice().setValue(max);
     }
 
     @Step
     public void clickPriceReadyButton() {
         log.info("Click \"Price is ready\" button");
-        filter.getPriceReadyButtonDDF().click();
+        filter.getPriceReadyButton().click();
     }
 
     @Step
     public void enterMinMaxAmount(String min, String max) {
         log.info("Enter min {} and max {} amount", min, max);
-        filter.getMinPriceDDF().setValue(min);
-        filter.getMaxPriceDDF().setValue(max);
+        filter.getMinPrice().setValue(min);
+        filter.getMaxPrice().setValue(max);
         log.info("Click submit button");
-        filter.getPriceReadyButtonDDF().click();
+        filter.getPriceReadyButton().click();
     }
 }
