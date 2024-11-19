@@ -34,15 +34,33 @@ public class NavigationPage {
         return mailListElement;
     }
 
-    private String getId(String itemDL) {
+    private String getId(String itemML) {
         String id = "";
-        switch (itemDL.toLowerCase()) {
+        switch (itemML.toLowerCase()) {
             case "женщинам" -> id = "306";
             case "обувь" -> id = "629";
             case "детям" -> id = "115";
-            default -> log.info("Incorrect item name: {}", itemDL);
+            case "мужчинам" -> id = "566";
+            case "дом" -> id = "258";
+            case "красота" -> id = "543";
+            case "аксессуары" -> id = "1";
+            case "электроника" -> id = "4830";
+            case "игрушки" -> id = "481";
+            case "мебель" -> id = "62827";
+            case "товары для взрослых" -> id = "62057";
+            case "продукты" -> id = "10296";
+            case "бытовая техника" -> id = "16107";
+            case "зоотовары" -> id = "6119";
+            case "спорт" -> id = "784";
+            case "автотовары" -> id = "6994";
+            case "книги" -> id = "519";
+            case "для ремонта" -> id = "17006";
+            case "сад и дача" -> id = "4863";
+            case "здоровье" -> id = "10326";
+            case "канцтовары" -> id = "5486";
+            default -> log.info("Incorrect item name: {}", itemML);
         }
-        log.info("Dropdown list item: \"{}\" have id: {}", itemDL, id);
+        log.info("Main list item: \"{}\" have id: {}", itemML, id);
         return id;
     }
 }
