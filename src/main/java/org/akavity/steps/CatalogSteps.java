@@ -6,6 +6,8 @@ import lombok.extern.log4j.Log4j2;
 import org.akavity.pages.CatalogPage;
 import org.akavity.utils.Utils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Predicate;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -29,5 +31,23 @@ public class CatalogSteps {
         ElementsCollection prices = catalogPage.getPricesFields();
         Predicate<Double> predicate = p -> (p >= Integer.parseInt(min) && p <= Integer.parseInt(max));
         return utils.relationalMethod(prices, predicate);
+    }
+
+    @Step
+    public boolean doProductNamesContainText(String text) {
+        catalogPage.getSearchTitleField(text).shouldBe(visible);
+        log.info("Do product names contain text: {}", text);
+        List<String> names = new ArrayList<>(catalogPage.getProductNames().texts());
+        boolean result;
+        log.info("List size: {}", names.size());
+        if (names.isEmpty()) {
+            log.info("List is empty");
+            result = false;
+        } else {
+            result = names.stream()
+                    .peek(d -> log.info("Product name: {}", d))
+                    .allMatch(name -> name.toLowerCase().contains(text.toLowerCase()));
+        }
+        return result;
     }
 }
