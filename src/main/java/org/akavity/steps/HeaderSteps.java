@@ -15,4 +15,16 @@ public class HeaderSteps {
         log.info("Click catalog button");
         headerPage.getCatalogButton().shouldBe(visible).click();
     }
+
+    @Step
+    public void enterTextInSearchField(String text) {
+        log.info("Enter text in the search field");
+        headerPage.getSearchField().sendKeys(text);
+    }
+
+    @Step
+    public void clickLoupeButton() {
+        log.info("Click the loupe button");
+        headerPage.getLoupeButton().click();
+    }
 }
