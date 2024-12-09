@@ -6,6 +6,7 @@
                 <methods>
                     <include name="catalogNavigation"/>
                     <include name="sortProductsByPrice"/>
+                    <include name="productSearch"/>
                 </methods>
             </class>
         </classes>

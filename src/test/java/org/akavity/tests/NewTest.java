@@ -3,11 +3,13 @@ package org.akavity.tests;
 import org.akavity.annotations.TestData;
 import org.akavity.models.CatalogData;
 import org.akavity.models.PriceData;
+import org.akavity.models.SearchData;
 import org.akavity.steps.CatalogSteps;
 import org.akavity.steps.FilterDropDownSteps;
 import org.akavity.steps.HeaderSteps;
 import org.akavity.steps.NavigationSteps;
 import org.akavity.utils.JsonReader;
+import org.akavity.utils.Utils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -38,5 +40,14 @@ public class NewTest extends BaseTest {
         filterDDSteps.enterMinMaxAmount(price.getMinPrice(), price.getMaxPrice());
 
         Assert.assertTrue(catalogSteps.areProductPricesWithinLimit(price.getMinPrice(), price.getMaxPrice()));
+    }
+
+    @TestData(jsonFile = "searchData", model = "SearchData")
+    @Test(description = "Search by product name", dataProviderClass = JsonReader.class, dataProvider = "getData")
+    public void productSearch(SearchData searchData) {
+        headerSteps.enterTextInSearchField(searchData.getText());
+        headerSteps.clickLoupeButton();
+
+      Assert.assertTrue(catalogSteps.doProductNamesContainText(searchData.getText()));
     }
 }
