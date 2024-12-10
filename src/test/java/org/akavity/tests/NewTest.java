@@ -4,12 +4,12 @@ import org.akavity.annotations.TestData;
 import org.akavity.models.CatalogData;
 import org.akavity.models.PriceData;
 import org.akavity.models.SearchData;
+import org.akavity.models.ServiceMenuData;
 import org.akavity.steps.CatalogSteps;
 import org.akavity.steps.FilterDropDownSteps;
 import org.akavity.steps.HeaderSteps;
 import org.akavity.steps.NavigationSteps;
 import org.akavity.utils.JsonReader;
-import org.akavity.utils.Utils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -48,6 +48,15 @@ public class NewTest extends BaseTest {
         headerSteps.enterTextInSearchField(searchData.getText());
         headerSteps.clickLoupeButton();
 
-      Assert.assertTrue(catalogSteps.doProductNamesContainText(searchData.getText()));
+        Assert.assertTrue(catalogSteps.doProductNamesContainText(searchData.getText()));
+    }
+
+    @TestData(jsonFile = "serviceMenuData", model = "ServiceMenuData")
+    @Test(description = "Service menu navigation", dataProviderClass = JsonReader.class, dataProvider = "getData")
+    public void serviceMenuNavigation(ServiceMenuData serviceMenuData) {
+        headerSteps.clickAddressButton();
+        headerSteps.clickServiceMenuItem(serviceMenuData.getItem());
+
+        Assert.assertTrue(headerSteps.isTitleVDisplayed(serviceMenuData.getTitle()));
     }
 }
