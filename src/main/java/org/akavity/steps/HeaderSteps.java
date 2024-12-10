@@ -3,12 +3,15 @@ package org.akavity.steps;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.akavity.pages.HeaderPage;
+import org.akavity.utils.Utils;
 
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.switchTo;
 
 @Log4j2
 public class HeaderSteps {
     HeaderPage headerPage = new HeaderPage();
+    Utils utils = new Utils();
 
     @Step
     public void clickCatalogButton() {
@@ -26,5 +29,27 @@ public class HeaderSteps {
     public void clickLoupeButton() {
         log.info("Click the loupe button");
         headerPage.getLoupeButton().click();
+    }
+
+    @Step
+    public void clickAddressButton() {
+        log.info("Click the address button");
+        headerPage.getAddressButton().click();
+    }
+
+    @Step
+    public void clickServiceMenuItem(String item) {
+        log.info("Click service menu item: {}", item);
+        headerPage.getServiceMenuItem(item).click();
+    }
+
+    @Step
+    public boolean isTitleVDisplayed(String title) {
+        utils.sleep(2000);
+        log.info("Switch to frame");
+        switchTo().frame(headerPage.getIframe());                               //  iframe
+        boolean result = headerPage.getServiceMenuTitle(title).isDisplayed();
+        log.info("Is the title displayed: {}", result);
+        return result;
     }
 }
