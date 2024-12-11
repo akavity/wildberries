@@ -50,4 +50,21 @@ public class CatalogSteps {
         }
         return result;
     }
+
+    @Step
+    public boolean isCurrencyCorrect(String cur) {
+        log.info("Check that price contains currency: {}", cur);
+        catalogPage.getPricesFields().first().shouldBe(visible);
+        List<String> prices = new ArrayList<>(catalogPage.getPricesFields().texts());
+        boolean result;
+        if (prices.isEmpty()) {
+            log.info("Collection is empty");
+            result = false;
+        } else {
+            result = prices.stream()
+                    .peek(p -> log.info("Element price: {}", p))
+                    .allMatch(el -> el.contains(cur));
+        }
+        return result;
+    }
 }
