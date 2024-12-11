@@ -52,4 +52,12 @@ public class HeaderSteps {
         log.info("Is the title displayed: {}", result);
         return result;
     }
+
+    @Step
+    public void selectCurrency(String cur) {
+        log.info("Click currency button");
+        headerPage.getCurrencyButton().click();
+        log.info("Select currency: {}", cur);
+        headerPage.getCurrencyItem(cur).shouldBe(visible).click();
+    }
 }

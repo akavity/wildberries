@@ -11,6 +11,7 @@ public class HeaderPage {
     private final SelenideElement loupeButton = $(By.cssSelector("button[id='applySearchBtn']"));
     private final SelenideElement addressButton = $(By.cssSelector("div[class*='item-addresses']"));
     private final SelenideElement iframe = $(By.cssSelector("iframe[class='service-page__iframe']"));
+    private final SelenideElement currencyButton = $(By.cssSelector("span[class='simple-menu__currency']"));
 
     public SelenideElement getServiceMenuItem(String item) {
         return $(By.xpath("//li[contains(@class,'service-menu__item')]/a[contains(text(),'" + item + "')]"));
@@ -18,6 +19,10 @@ public class HeaderPage {
 
     public SelenideElement getServiceMenuTitle(String title) {
         return $(By.xpath("//div[@class='service-page-iframe']//h1[contains(text(),'" + title + "')]"));
+    }
+
+    public SelenideElement getCurrencyItem(String item) {
+        return $(By.xpath("//span[@class='radio-with-text__name' and contains(text(),'" + item + "')]/.."));
     }
 
     public SelenideElement getCatalogButton() {
@@ -38,5 +43,9 @@ public class HeaderPage {
 
     public SelenideElement getIframe() {
         return iframe;
+    }
+
+    public SelenideElement getCurrencyButton() {
+        return currencyButton;
     }
 }
