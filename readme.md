@@ -6,6 +6,7 @@
 * Test 2. Checking product sorting by price.
 * Test 3. Product search.
 * Test 4. Service menu navigation.
+* Test 5. Select currency.
 
 ## Technologies:
 

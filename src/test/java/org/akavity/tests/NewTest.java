@@ -1,10 +1,7 @@
 package org.akavity.tests;
 
 import org.akavity.annotations.TestData;
-import org.akavity.models.CatalogData;
-import org.akavity.models.PriceData;
-import org.akavity.models.SearchData;
-import org.akavity.models.ServiceMenuData;
+import org.akavity.models.*;
 import org.akavity.steps.CatalogSteps;
 import org.akavity.steps.FilterDropDownSteps;
 import org.akavity.steps.HeaderSteps;
@@ -58,5 +55,13 @@ public class NewTest extends BaseTest {
         headerSteps.clickServiceMenuItem(serviceMenuData.getItem());
 
         Assert.assertTrue(headerSteps.isTitleVDisplayed(serviceMenuData.getTitle()));
+    }
+
+    @TestData(jsonFile = "currencyData", model = "CurrencyData")
+    @Test(description = "Select currency", dataProviderClass = JsonReader.class, dataProvider = "getData")
+    public void selectCurrency(CurrencyData currencyData) {
+        headerSteps.selectCurrency(currencyData.getCurrency());
+
+        Assert.assertTrue(catalogSteps.isCurrencyCorrect(currencyData.getSymbol()));
     }
 }
