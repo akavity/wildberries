@@ -2,10 +2,7 @@ package org.akavity.tests;
 
 import org.akavity.annotations.TestData;
 import org.akavity.models.*;
-import org.akavity.steps.CatalogSteps;
-import org.akavity.steps.FilterDropDownSteps;
-import org.akavity.steps.HeaderSteps;
-import org.akavity.steps.NavigationSteps;
+import org.akavity.steps.*;
 import org.akavity.utils.JsonReader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -15,6 +12,7 @@ public class NewTest extends BaseTest {
     NavigationSteps navigationSteps = new NavigationSteps();
     CatalogSteps catalogSteps = new CatalogSteps();
     FilterDropDownSteps filterDDSteps = new FilterDropDownSteps();
+    GeoSteps geoSteps = new GeoSteps();
 
     @TestData(jsonFile = "catalogData", model = "CatalogData")
     @Test(description = "Catalog navigation", dataProviderClass = JsonReader.class, dataProvider = "getData")
@@ -63,5 +61,15 @@ public class NewTest extends BaseTest {
         headerSteps.selectCurrency(currencyData.getCurrency());
 
         Assert.assertTrue(catalogSteps.isCurrencyCorrect(currencyData.getSymbol()));
+    }
+
+    @TestData(jsonFile = "deliveryData", model = "DeliveryData")
+    @Test(description = "Select pick up point", dataProviderClass = JsonReader.class, dataProvider = "getData")
+    public void selectPickUpPoint(DeliveryData deliveryData) {
+        headerSteps.clickGeolocationButton();
+        geoSteps.clickAddressButton(deliveryData.getAddress());
+        geoSteps.clickTakeFromHereButton();
+
+        Assert.assertTrue(headerSteps.isAddressPickUpPointDisplayed(deliveryData.getAddress()));
     }
 }
