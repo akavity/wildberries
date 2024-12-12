@@ -60,4 +60,23 @@ public class HeaderSteps {
         log.info("Select currency: {}", cur);
         headerPage.getCurrencyItem(cur).shouldBe(visible).click();
     }
+
+    @Step
+    public void clickGeolocationButton() {
+        log.info("Click geolocation button");
+        headerPage.getGeolocationButton().click();
+    }
+
+    @Step
+    public boolean isAddressPickUpPointDisplayed(String address) {
+        utils.sleep(1000);
+        log.info("Check address of pick up point");
+        boolean res = headerPage.getGeolocationButtonByText(address).isDisplayed();
+        if (res == true) {
+            log.info("Address {} is displayed", address);
+        } else {
+            log.info("Address {} isn't displayed", address);
+        }
+        return res;
+    }
 }
