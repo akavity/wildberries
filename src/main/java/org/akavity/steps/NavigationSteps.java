@@ -18,6 +18,13 @@ public class NavigationSteps {
     }
 
     @Step
+    public void hoverMainListItem(String item) {
+        log.info("Hover main-list item: {}", item);
+        navigationPage.getMailListElement().shouldBe(visible);
+        navigationPage.getMainListItem(item).hover();
+    }
+
+    @Step
     public void clickDropListItem(String itemML, String itemDL1, String itemDL2) {
         log.info("Click first item of drop list: {}", itemDL1);
         navigationPage.getFirstDropListItem(itemML, itemDL1).click();
