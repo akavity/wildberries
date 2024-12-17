@@ -13,6 +13,7 @@ public class NewTest extends BaseTest {
     CatalogSteps catalogSteps = new CatalogSteps();
     FilterDropDownSteps filterDDSteps = new FilterDropDownSteps();
     GeoSteps geoSteps = new GeoSteps();
+    PromoSteps promoSteps = new PromoSteps();
 
     @TestData(jsonFile = "catalogData", model = "CatalogData")
     @Test(description = "Catalog navigation", dataProviderClass = JsonReader.class, dataProvider = "getData")
@@ -71,5 +72,17 @@ public class NewTest extends BaseTest {
         geoSteps.clickTakeFromHereButton();
 
         Assert.assertTrue(headerSteps.isAddressPickUpPointDisplayed(deliveryData.getAddress()));
+    }
+
+    @TestData(jsonFile = "belGoodsData", model = "BelGoodsData")
+    @Test(description = "Select belarusian good", dataProviderClass = JsonReader.class, dataProvider = "getData")
+    public void selectBelarusianGood(BelGoodsData belGoods) {
+        headerSteps.clickCatalogButton();
+        navigationSteps.hoverMainListItem(belGoods.getMainListItem());
+        navigationSteps.clickDropListItem(belGoods.getMainListItem(), belGoods.getFirstDropListItem(), belGoods.getSecondDropListItem());
+        promoSteps.clickContentItem(belGoods.getFirstContentItem(), belGoods.getSecondContentItem(), belGoods.getThirdContentItem());
+
+        String actual = catalogSteps.extractTextFromTitle();
+        Assert.assertEquals(actual, belGoods.getTitle());
     }
 }
