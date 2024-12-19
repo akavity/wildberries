@@ -17,7 +17,7 @@ public class NavigationPage {
     public SelenideElement getFirstDropListItem(String itemML, String itemDL) {
         String id = getId(itemML);
         return $(By.xpath("//div[@data-menu-id='" + id + "']//div[contains(@class,'burger__first')]//a[.='" + itemDL + "'] " +
-                "| //div[@data-menu-id='" + id + "']//div[contains(@class,'burger__first')]//span[.='" + itemDL + "']"));
+                "| //div[@data-menu-id='" + id + "']//span[.='" + itemDL + "']"));
     }
 
     public SelenideElement getSecondDropListItem(String itemML, String itemDL) {
@@ -58,6 +58,7 @@ public class NavigationPage {
             case "сад и дача" -> id = "4863";
             case "здоровье" -> id = "10326";
             case "канцтовары" -> id = "5486";
+            case "акции" -> id = "2192";
             default -> log.info("Incorrect item name: {}", itemML);
         }
         log.info("Main list item: \"{}\" have id: {}", itemML, id);
