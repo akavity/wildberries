@@ -11,7 +11,6 @@ public class PromoPage {
     }
 
     // BelGoods
-
     public SelenideElement getMenuItem(String item) {
         return $(By.xpath("//li[@class='menu-category__item']/a[contains(text(),'" + item + "')]"));
     }
