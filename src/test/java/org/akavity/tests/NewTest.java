@@ -85,4 +85,15 @@ public class NewTest extends BaseTest {
         String actual = catalogSteps.extractTextFromTitle();
         Assert.assertEquals(actual, belGoods.getTitle());
     }
+
+    @TestData(jsonFile = "promotionData", model = "PromotionData")
+    @Test(description = "Select a promotion", dataProviderClass = JsonReader.class, dataProvider = "getData")
+    public void selectPromotion(PromotionData promotion) {
+        headerSteps.clickCatalogButton();
+        navigationSteps.hoverMainListItem(promotion.getMainListItem());
+        navigationSteps.clickDropListItem(promotion.getMainListItem(), promotion.getFirstDropListItem(), promotion.getSecondDropListItem());
+
+        String actual = catalogSteps.extractTextFromTitle();
+        Assert.assertEquals(actual, promotion.getTitle());
+    }
 }

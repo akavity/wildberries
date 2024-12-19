@@ -11,6 +11,7 @@
                     <include name="selectCurrency"/>
                     <include name="selectPickUpPoint"/>
                     <include name="selectLocalWarehouseProduct"/>
+                    <include name="selectPromotion"/>
                 </methods>
             </class>
         </classes>
