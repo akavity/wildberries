@@ -10,7 +10,7 @@
                     <include name="serviceMenuNavigation"/>
                     <include name="selectCurrency"/>
                     <include name="selectPickUpPoint"/>
-                    <include name="selectBelarusianGood"/>
+                    <include name="selectLocalWarehouseProduct"/>
                 </methods>
             </class>
         </classes>

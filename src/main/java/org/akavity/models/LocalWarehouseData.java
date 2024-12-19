@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BelGoodsData {
+public class LocalWarehouseData {
     String mainListItem;
     String firstDropListItem;
     String secondDropListItem;

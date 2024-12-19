@@ -74,9 +74,9 @@ public class NewTest extends BaseTest {
         Assert.assertTrue(headerSteps.isAddressPickUpPointDisplayed(deliveryData.getAddress()));
     }
 
-    @TestData(jsonFile = "belGoodsData", model = "BelGoodsData")
-    @Test(description = "Select belarusian good", dataProviderClass = JsonReader.class, dataProvider = "getData")
-    public void selectBelarusianGood(BelGoodsData belGoods) {
+    @TestData(jsonFile = "localWarehouseData", model = "LocalWarehouseData")
+    @Test(description = "Select local warehouse product", dataProviderClass = JsonReader.class, dataProvider = "getData")
+    public void selectLocalWarehouseProduct(LocalWarehouseData belGoods) {
         headerSteps.clickCatalogButton();
         navigationSteps.hoverMainListItem(belGoods.getMainListItem());
         navigationSteps.clickDropListItem(belGoods.getMainListItem(), belGoods.getFirstDropListItem(), belGoods.getSecondDropListItem());

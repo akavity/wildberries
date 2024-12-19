@@ -8,7 +8,7 @@
 * Test 4. Service menu navigation.
 * Test 5. Select currency.
 * Test 6. Select pick up point.
-* Test 7. Select belarusian good.
+* Test 7. Select local warehouse product.
 
 ## Technologies:
 
