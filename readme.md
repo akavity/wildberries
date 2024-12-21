@@ -7,7 +7,7 @@
 * Test 3. Product search.
 * Test 4. Service menu navigation.
 * Test 5. Select currency.
-* Test 6. Select pick up point.
+* Test 6. Select pickup point.
 * Test 7. Select local warehouse product.
 * Test 8. Select a promotion.
 
