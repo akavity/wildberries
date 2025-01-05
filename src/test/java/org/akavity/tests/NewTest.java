@@ -69,7 +69,6 @@ public class NewTest extends BaseTest {
     public void selectPickUpPoint(DeliveryData deliveryData) {
         headerSteps.clickGeolocationButton();
         geoSteps.clickAddressButton(deliveryData.getAddress());
-        geoSteps.clickTakeFromHereButton();
 
         Assert.assertTrue(headerSteps.isAddressPickUpPointDisplayed(deliveryData.getAddress()));
     }

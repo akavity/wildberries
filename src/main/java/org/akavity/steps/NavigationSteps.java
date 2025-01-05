@@ -4,6 +4,9 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.akavity.pages.NavigationPage;
 
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.visible;
 
 @Log4j2
@@ -20,7 +23,7 @@ public class NavigationSteps {
     @Step
     public void hoverMainListItem(String item) {
         log.info("Hover main-list item: {}", item);
-        navigationPage.getMailListElement().shouldBe(visible);
+        navigationPage.getMailListElement().shouldBe(exist, Duration.ofSeconds(5));
         navigationPage.getMainListItem(item).hover();
     }
 
