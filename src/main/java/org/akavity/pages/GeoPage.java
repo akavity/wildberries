@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 
 public class GeoPage {
+    private final SelenideElement geoTitleField = $(By.xpath("//h2[contains(text(),'способ доставки')]"));
     private final SelenideElement pickUpPointButton = $(By.xpath("//div[contains(@class,'geo-block__info')]//span[contains(text(),'Пункт выдачи')]"));
     private final SelenideElement deliveryButton = $(By.xpath("//div[contains(@class,'geo-block__info')]//span[contains(text(),'Курьером')]"));
 
@@ -14,10 +15,15 @@ public class GeoPage {
     }
 
     // PickUp point block
+    private final SelenideElement pickUpPointTitle = $(By.xpath("//h3[contains(text(),'Пункт выдачи')]"));
     private final SelenideElement takeFromHereButton = $(By.cssSelector("button[class*='details-self__btn']"));
 
     public SelenideElement addressField(String address) {
         return $(By.xpath("//div[@class='details-self__name']/span[contains(text(),'" + address + "')]"));
+    }
+
+    public SelenideElement getGeoTitleField() {
+        return geoTitleField;
     }
 
     public SelenideElement getPickUpPointButton() {
@@ -26,6 +32,10 @@ public class GeoPage {
 
     public SelenideElement getDeliveryButton() {
         return deliveryButton;
+    }
+
+    public SelenideElement getPickUpPointTitle() {
+        return pickUpPointTitle;
     }
 
     public SelenideElement getTakeFromHereButton() {
