@@ -27,7 +27,7 @@ public class HeaderPage {
     }
 
     public SelenideElement getGeolocationButtonByText(String address) {
-        return $(By.xpath("//span[contains(@class,'geocity') and contains(text(),'" + address + "')]"));
+        return $(By.xpath("//span[contains(@class,'details') and contains(text(),'" + address + "')]"));
     }
 
     public SelenideElement getCatalogButton() {

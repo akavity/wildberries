@@ -5,6 +5,7 @@ import lombok.extern.log4j.Log4j2;
 import org.akavity.pages.HeaderPage;
 import org.akavity.utils.Utils;
 
+import static com.codeborne.selenide.Condition.clickable;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.switchTo;
 
@@ -16,7 +17,7 @@ public class HeaderSteps {
     @Step
     public void clickCatalogButton() {
         log.info("Click catalog button");
-        headerPage.getCatalogButton().shouldBe(visible).click();
+        headerPage.getCatalogButton().shouldBe(clickable).click();
     }
 
     @Step
@@ -64,12 +65,13 @@ public class HeaderSteps {
     @Step
     public void clickGeolocationButton() {
         log.info("Click geolocation button");
+        headerPage.getGeolocationButton().shouldBe(clickable);
         headerPage.getGeolocationButton().click();
     }
 
     @Step
     public boolean isAddressPickUpPointDisplayed(String address) {
-        utils.sleep(1000);
+        utils.sleep(2000);
         log.info("Check address of pick up point");
         boolean res = headerPage.getGeolocationButtonByText(address).isDisplayed();
         if (res == true) {
