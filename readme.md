@@ -6,9 +6,9 @@
 * Test 2. Checking product sorting by price.
 * Test 3. Product search.
 * Test 4. Service menu navigation.
-* Test 5. Select currency.
-* Test 6. Select pickup point.
-* Test 7. Select local warehouse product.
+* Test 5. Select a currency.
+* Test 6. Select a pickup point.
+* Test 7. Select a local warehouse product.
 * Test 8. Select a promotion.
 
 ## Technologies:
