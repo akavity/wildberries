@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import io.qameta.allure.selenide.LogType;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -27,6 +28,9 @@ public class BaseTest {
 
         Configuration.browserSize = "1920x1080";
         Configuration.browser = CHROME;
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-notifications"); // Disable notifications
+        Configuration.browserCapabilities.setCapability(ChromeOptions.CAPABILITY, options);
     }
 
     @BeforeMethod
