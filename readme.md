@@ -11,6 +11,7 @@
 * Test 7. Select a local warehouse product.
 * Test 8. Select a promotion.
 * Test 9. Look at reviews.
+* Test 10. Open product popup.
 
 ## Technologies:
 

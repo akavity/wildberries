@@ -73,4 +73,13 @@ public class CatalogSteps {
         log.info("Select a first product card");
         catalogPage.getProductCards().first().click();
     }
+
+    @Step
+    public void clickFirstPopupButton() {
+        log.info("Hover over the first product card");
+        catalogPage.getProductCards().first().hover();
+        utils.sleep(1000);
+        log.info("Click \"Popup\" button");
+        catalogPage.getPopupButtons().first().click();
+    }
 }
