@@ -7,7 +7,7 @@ import org.akavity.steps.UserActivitySteps;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class ProductTest extends OldBaseTest {
+public class ProductTest extends BaseTest {
     CatalogSteps catalogSteps = new CatalogSteps();
     ProductSteps productSteps = new ProductSteps();
     UserActivitySteps userActivitySteps = new UserActivitySteps();
@@ -23,8 +23,14 @@ public class ProductTest extends OldBaseTest {
 
     @Test(description = "Open product popup")
     public void openProductPopup() {
+        String cardBrand = catalogSteps.getFirstProductCardBrand();
+        double cardPrice = catalogSteps.getFirstProductCardPrice();
         catalogSteps.clickFirstPopupButton();
+        String popupBrand = popupSteps.getProductBrand();
+        double popupPrice =  popupSteps.getProductPrice();
 
         Assert.assertTrue(popupSteps.isPopupBlockDisplayed());
+        Assert.assertEquals(cardBrand, popupBrand);
+        Assert.assertEquals(cardPrice,popupPrice);
     }
 }
