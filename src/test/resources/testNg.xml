@@ -28,6 +28,11 @@
                     <include name="selectPromotion"/>
                 </methods>
             </class>
+            <class name="org.akavity.tests.ProductTest">
+                <methods>
+                    <include name="lookAtReviews"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
