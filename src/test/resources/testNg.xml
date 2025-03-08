@@ -31,6 +31,7 @@
             <class name="org.akavity.tests.ProductTest">
                 <methods>
                     <include name="lookAtReviews"/>
+                    <include name="lookAtQuestions"/>
                     <include name="openProductPopup"/>
                 </methods>
             </class>

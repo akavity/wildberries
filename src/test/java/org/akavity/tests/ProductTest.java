@@ -7,7 +7,7 @@ import org.akavity.steps.UserActivitySteps;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class ProductTest extends BaseTest {
+public class ProductTest extends OldBaseTest {
     CatalogSteps catalogSteps = new CatalogSteps();
     ProductSteps productSteps = new ProductSteps();
     UserActivitySteps userActivitySteps = new UserActivitySteps();
@@ -16,9 +16,18 @@ public class ProductTest extends BaseTest {
     @Test(description = "Look at reviews")
     public void lookAtReviews() {
         catalogSteps.selectFirstProductCard();
-        productSteps.clickViewAllButton();
+        productSteps.clickViewAllCommentsButton();
 
         Assert.assertTrue(userActivitySteps.isFeedbackButtonDisplayed());
+    }
+
+    @Test(description = "Look at Questions")
+    public void lookAtQuestions() {
+        catalogSteps.selectFirstProductCard();
+        productSteps.clickQuestionsButton();
+        productSteps.clickViewAllQuestionButton();
+
+        Assert.assertTrue(userActivitySteps.isQuestionTitleDisplayed());
     }
 
     @Test(description = "Open product popup")
@@ -27,10 +36,10 @@ public class ProductTest extends BaseTest {
         double cardPrice = catalogSteps.getFirstProductCardPrice();
         catalogSteps.clickFirstPopupButton();
         String popupBrand = popupSteps.getProductBrand();
-        double popupPrice =  popupSteps.getProductPrice();
+        double popupPrice = popupSteps.getProductPrice();
 
         Assert.assertTrue(popupSteps.isPopupBlockDisplayed());
         Assert.assertEquals(cardBrand, popupBrand);
-        Assert.assertEquals(cardPrice,popupPrice);
+        Assert.assertEquals(cardPrice, popupPrice);
     }
 }

@@ -17,4 +17,12 @@ public class UserActivitySteps {
         log.info("Is a feedback button displayed: {}", result);
         return result;
     }
+
+    @Step
+    public boolean isQuestionTitleDisplayed() {
+        utils.sleep(1500);
+        boolean result = userActivityPage.getQuestionTitle().isDisplayed();
+        log.info("Is a question title is displayed: {}", result);
+        return result;
+    }
 }

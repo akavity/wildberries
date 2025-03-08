@@ -17,9 +17,9 @@ public class Utils {
         }
     }
 
-    public double extractDoubleFromText(String text, String regex) {
+    public double extractDoubleFromText(String text) {
         double result = 0.0;
-        Pattern pattern = Pattern.compile(regex);
+        Pattern pattern = Pattern.compile("\\d?[ ]?\\d+[,.]\\d{2}");
         Matcher matcher = pattern.matcher(text);
         while (matcher.find()) {
             result = Double.parseDouble(matcher.group().replace(" ", "").replace(",", "."));
@@ -35,7 +35,7 @@ public class Utils {
         } else {
             result = col.asDynamicIterable()
                     .stream()
-                    .map(el -> extractDoubleFromText(el.getText(), "\\d?[ ]?\\d+[,.]\\d{2}"))
+                    .map(el -> extractDoubleFromText(el.getText()))
                     .peek(p -> log.info("Element price: {}", p))
                     .allMatch(predicate);
         }

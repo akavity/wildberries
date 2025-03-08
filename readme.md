@@ -12,6 +12,7 @@
 * Test 8. Select a promotion.
 * Test 9. Look at reviews.
 * Test 10. Open product popup.
+* Test 11. Look at questions.
 
 ## Technologies:
 
