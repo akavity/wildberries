@@ -9,6 +9,7 @@ public class PopupPage {
     private final SelenideElement popupBlock = $(By.cssSelector("div[class*='product-popup shown']"));
     private final SelenideElement productName = $(By.cssSelector("span[data-link*='goodsName']"));
     private final SelenideElement productPrice = $(By.cssSelector("div[class='product__content'] ins[class*='final-price']"));
+    private final SelenideElement productBrand = $(By.cssSelector("div[class*='product__content'] span[class*='brand-name']"));
 
     public SelenideElement getPopupBlock() {
         return popupBlock;
@@ -20,5 +21,9 @@ public class PopupPage {
 
     public SelenideElement getProductPrice() {
         return productPrice;
+    }
+
+    public SelenideElement getProductBrand() {
+        return productBrand;
     }
 }
