@@ -67,4 +67,10 @@ public class CatalogSteps {
         }
         return result;
     }
+
+    @Step
+    public void selectFirstProductCard() {
+        log.info("Select a first product card");
+        catalogPage.getProductCards().first().click();
+    }
 }
