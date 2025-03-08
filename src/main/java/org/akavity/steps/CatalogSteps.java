@@ -82,4 +82,18 @@ public class CatalogSteps {
         log.info("Click \"Popup\" button");
         catalogPage.getPopupButtons().first().click();
     }
+
+    @Step
+    public String getFirstProductCardBrand() {
+        String brand = catalogPage.getBrandFields().first().getText();
+        log.info("Brand of the first product card: {}", brand);
+        return brand;
+    }
+
+    @Step
+    public double getFirstProductCardPrice() {
+        double price = utils.extractDoubleFromText(catalogPage.getPricesFields().first().text());
+        log.info("Price of the first product card: {}", price);
+        return price;
+    }
 }

@@ -17,4 +17,18 @@ public class PopupSteps {
         log.info("Is popup block displayed: {}", res);
         return res;
     }
+
+    @Step
+    public double getProductPrice() {
+        double price = utils.extractDoubleFromText(popupPage.getProductPrice().text());
+        log.info("Popup product price: {}", price);
+        return price;
+    }
+
+    @Step
+    public String getProductBrand() {
+        String brand = popupPage.getProductBrand().getText();
+        log.info("Popup product brand: {}", brand);
+        return brand;
+    }
 }
