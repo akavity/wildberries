@@ -96,4 +96,10 @@ public class CatalogSteps {
         log.info("Price of the first product card: {}", price);
         return price;
     }
+
+    @Step
+    public void clickFirstButtonAddToBasket() {
+        log.info("Click on the first button \"Add to basket\"");
+        catalogPage.getAddBasketButtons().first().click();
+    }
 }
