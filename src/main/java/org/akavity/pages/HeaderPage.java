@@ -13,6 +13,7 @@ public class HeaderPage {
     private final SelenideElement iframe = $(By.cssSelector("iframe[class='service-page__iframe']"));
     private final SelenideElement currencyButton = $(By.cssSelector("span[class='simple-menu__currency']"));
     private final SelenideElement geolocationButton = $(By.cssSelector("span[class*='geocity']"));
+    private final SelenideElement basketButton = $(By.cssSelector("a[data-wba-header-name='Cart']"));
 
     public SelenideElement getServiceMenuItem(String item) {
         return $(By.xpath("//li[contains(@class,'service-menu__item')]/a[contains(text(),'" + item + "')]"));
@@ -56,5 +57,9 @@ public class HeaderPage {
 
     public SelenideElement getGeolocationButton() {
         return geolocationButton;
+    }
+
+    public SelenideElement getBasketButton() {
+        return basketButton;
     }
 }

@@ -14,6 +14,7 @@ public class CatalogPage {
     private final ElementsCollection productCards = $$(By.cssSelector("div[class='product-card__wrapper']"));
     private final ElementsCollection popupButtons = $$(By.cssSelector("button[class*='open-product-popup']"));
     private final ElementsCollection brandFields = $$(By.cssSelector("span[class='product-card__brand']"));
+    private final ElementsCollection addBasketButtons = $$(By.cssSelector("p[class='product-card__order-wrap']"));
 
     public SelenideElement getSearchTitleField(String title) {
         return $(By.xpath("//h1[@class='searching-results__title' and contains(text(),'" + title + "')]"));
@@ -41,5 +42,9 @@ public class CatalogPage {
 
     public ElementsCollection getBrandFields() {
         return brandFields;
+    }
+
+    public ElementsCollection getAddBasketButtons() {
+        return addBasketButtons;
     }
 }
