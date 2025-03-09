@@ -5,12 +5,14 @@
         <parameter name="browser" value="chrome"/>
         <parameter name="version" value="latest"/>
         <classes>
-            <class name="org.akavity.tests.NewTest">
+            <class name="org.akavity.tests.HeaderTest">
                 <methods>
                     <include name="catalogNavigation"/>
-                    <include name="sortProductsByPrice"/>
-                    <include name="productSearch"/>
                     <include name="serviceMenuNavigation"/>
+                    <include name="selectCurrency"/>
+                    <include name="selectPickUpPoint"/>
+                    <include name="selectLocalWarehouseProduct"/>
+                    <include name="selectPromotion"/>
                 </methods>
             </class>
         </classes>
@@ -20,19 +22,18 @@
         <parameter name="browser" value="chrome"/>
         <parameter name="version" value="latest"/>
         <classes>
-            <class name="org.akavity.tests.NewTest">
+            <class name="org.akavity.tests.SortTest">
                 <methods>
-                    <include name="selectCurrency"/>
-                    <include name="selectPickUpPoint"/>
-                    <include name="selectLocalWarehouseProduct"/>
-                    <include name="selectPromotion"/>
+                    <include name="sortProductsByPrice"/>
                 </methods>
             </class>
             <class name="org.akavity.tests.ProductTest">
                 <methods>
+                    <include name="productSearch"/>
                     <include name="lookAtReviews"/>
                     <include name="lookAtQuestions"/>
                     <include name="openProductPopup"/>
+                    <include name="addProductToBasket"/>
                 </methods>
             </class>
         </classes>

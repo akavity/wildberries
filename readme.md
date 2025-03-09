@@ -13,6 +13,7 @@
 * Test 9. Look at reviews.
 * Test 10. Open product popup.
 * Test 11. Look at questions.
+* Test 12. Add product to basket.
 
 ## Technologies:
 

@@ -1,17 +1,28 @@
 package org.akavity.tests;
 
-import org.akavity.steps.CatalogSteps;
-import org.akavity.steps.PopupSteps;
-import org.akavity.steps.ProductSteps;
-import org.akavity.steps.UserActivitySteps;
+import org.akavity.annotations.TestData;
+import org.akavity.models.SearchData;
+import org.akavity.steps.*;
+import org.akavity.utils.JsonReader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class ProductTest extends OldBaseTest {
+public class ProductTest extends BaseTest {
     CatalogSteps catalogSteps = new CatalogSteps();
     ProductSteps productSteps = new ProductSteps();
     UserActivitySteps userActivitySteps = new UserActivitySteps();
     PopupSteps popupSteps = new PopupSteps();
+    HeaderSteps headerSteps = new HeaderSteps();
+    BasketSteps basketSteps = new BasketSteps();
+
+    @TestData(jsonFile = "searchData", model = "SearchData")
+    @Test(description = "Search by product name", dataProviderClass = JsonReader.class, dataProvider = "getData")
+    public void productSearch(SearchData searchData) {
+        headerSteps.enterTextInSearchField(searchData.getText());
+        headerSteps.clickLoupeButton();
+
+        Assert.assertTrue(catalogSteps.doProductNamesContainText(searchData.getText()));
+    }
 
     @Test(description = "Look at reviews")
     public void lookAtReviews() {
@@ -41,5 +52,15 @@ public class ProductTest extends OldBaseTest {
         Assert.assertTrue(popupSteps.isPopupBlockDisplayed());
         Assert.assertEquals(cardBrand, popupBrand);
         Assert.assertEquals(cardPrice, popupPrice);
+    }
+
+    @Test(description = "Add product to basket")
+    public void addProductToBasket() {
+        double cardPrice = catalogSteps.getFirstProductCardPrice();
+        catalogSteps.clickFirstButtonAddToBasket();
+        headerSteps.clickBasketButton();
+        double basketPrice = basketSteps.getFinalPrice();
+
+        Assert.assertEquals(cardPrice, basketPrice);
     }
 }
