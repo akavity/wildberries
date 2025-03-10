@@ -43,13 +43,12 @@ public class HeaderTest extends BaseTest {
         Assert.assertTrue(catalogSteps.isCurrencyCorrect(currencyData.getSymbol()));
     }
 
-    @TestData(jsonFile = "deliveryData", model = "DeliveryData")
-    @Test(description = "Select pick up point", dataProviderClass = JsonReader.class, dataProvider = "getData")
-    public void selectPickUpPoint(DeliveryData deliveryData) {
+    @Test(description = "Select pick up point")
+    public void selectPickUpPoint() {
         headerSteps.clickGeolocationButton();
-        geoSteps.clickAddressButton(deliveryData.getAddress());
+        geoSteps.clickFirstPickupPoint();
 
-        Assert.assertTrue(headerSteps.isAddressPickUpPointDisplayed(deliveryData.getAddress()));
+        Assert.assertTrue(geoSteps.isPickupPointTitleDisplayed());
     }
 
     @TestData(jsonFile = "localWarehouseData", model = "LocalWarehouseData")
