@@ -7,6 +7,7 @@ import org.akavity.utils.Utils;
 
 @Log4j2
 public class ProductSteps {
+    String PARAMETER = "{behavior: \"instant\", block: \"center\", inline: \"center\"}";
     ProductPage productPage = new ProductPage();
     Utils utils = new Utils();
 
@@ -27,14 +28,13 @@ public class ProductSteps {
     public void clickViewAllCommentsButton() {
         utils.sleep(1300);
         log.info("Click \"View All Comments\" button");
-        productPage.getViewAllCommentsButton().scrollTo().click();
+        productPage.getViewAllCommentsButton().scrollIntoView(PARAMETER).click();
     }
 
     @Step
     public void clickViewAllQuestionButton() {
         utils.sleep(1300);
         log.info("CLick \"View All Question\" button");
-        productPage.getViewAllQuestionsButton().scrollTo().click();
-        ;
+        productPage.getViewAllQuestionsButton().scrollIntoView(PARAMETER).click();
     }
 }

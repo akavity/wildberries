@@ -102,4 +102,17 @@ public class CatalogSteps {
         log.info("Click on the first button \"Add to basket\"");
         catalogPage.getAddBasketButtons().first().click();
     }
+
+    @Step
+    public void clickFirstButtonOfSizeList() {
+        utils.sleep(1500);
+        boolean popUp = catalogPage.getPopupBlock().isDisplayed();
+        if (popUp) {
+
+            log.info("Popup block is displayed. Click first button of size list");
+            catalogPage.getSizeListButtons().first().click();
+        } else {
+            log.info("Popup block isn't displayed");
+        }
+    }
 }

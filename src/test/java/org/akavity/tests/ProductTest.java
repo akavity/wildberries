@@ -58,6 +58,7 @@ public class ProductTest extends BaseTest {
     public void addProductToBasket() {
         double cardPrice = catalogSteps.getFirstProductCardPrice();
         catalogSteps.clickFirstButtonAddToBasket();
+        catalogSteps.clickFirstButtonOfSizeList();
         headerSteps.clickBasketButton();
         double basketPrice = basketSteps.getFinalPrice();
 
