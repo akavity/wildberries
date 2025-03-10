@@ -67,4 +67,52 @@ public class CatalogSteps {
         }
         return result;
     }
+
+    @Step
+    public void selectFirstProductCard() {
+        log.info("Select a first product card");
+        catalogPage.getProductCards().first().click();
+    }
+
+    @Step
+    public void clickFirstPopupButton() {
+        log.info("Hover over the first product card");
+        catalogPage.getProductCards().first().hover();
+        utils.sleep(1000);
+        log.info("Click \"Popup\" button");
+        catalogPage.getPopupButtons().first().click();
+    }
+
+    @Step
+    public String getFirstProductCardBrand() {
+        String brand = catalogPage.getBrandFields().first().getText();
+        log.info("Brand of the first product card: {}", brand);
+        return brand;
+    }
+
+    @Step
+    public double getFirstProductCardPrice() {
+        double price = utils.extractDoubleFromText(catalogPage.getPricesFields().first().text());
+        log.info("Price of the first product card: {}", price);
+        return price;
+    }
+
+    @Step
+    public void clickFirstButtonAddToBasket() {
+        log.info("Click on the first button \"Add to basket\"");
+        catalogPage.getAddBasketButtons().first().click();
+    }
+
+    @Step
+    public void clickFirstButtonOfSizeList() {
+        utils.sleep(1500);
+        boolean popUp = catalogPage.getPopupBlock().isDisplayed();
+        if (popUp) {
+
+            log.info("Popup block is displayed. Click first button of size list");
+            catalogPage.getSizeListButtons().first().click();
+        } else {
+            log.info("Popup block isn't displayed");
+        }
+    }
 }

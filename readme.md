@@ -10,6 +10,10 @@
 * Test 6. Select a pickup point.
 * Test 7. Select a local warehouse product.
 * Test 8. Select a promotion.
+* Test 9. Look at reviews.
+* Test 10. Open product popup.
+* Test 11. Look at questions.
+* Test 12. Add product to basket.
 
 ## Technologies:
 

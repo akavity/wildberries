@@ -81,4 +81,10 @@ public class HeaderSteps {
         }
         return res;
     }
+
+    @Step
+    public void clickBasketButton() {
+        log.info("Click basket button");
+        headerPage.getBasketButton().click();
+    }
 }

@@ -17,16 +17,6 @@ public class Utils {
         }
     }
 
-    public double extractDoubleFromText(String text, String regex) {
-        double result = 0.0;
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(text);
-        while (matcher.find()) {
-            result = Double.parseDouble(matcher.group().replace(" ", "").replace(",", "."));
-        }
-        return result;
-    }
-
     public boolean relationalMethod(ElementsCollection col, Predicate<Double> predicate) {
         boolean result;
         if (col.isEmpty()) {
@@ -35,9 +25,19 @@ public class Utils {
         } else {
             result = col.asDynamicIterable()
                     .stream()
-                    .map(el -> extractDoubleFromText(el.getText(), "\\d?[ ]?\\d+[,.]\\d{2}"))
+                    .map(el -> extractDoubleFromText(el.getText()))
                     .peek(p -> log.info("Element price: {}", p))
                     .allMatch(predicate);
+        }
+        return result;
+    }
+
+    public double extractDoubleFromText(String text) {
+        double result = 0.0;
+        Pattern pattern = Pattern.compile("\\d?[ ]?\\d+[,.]\\d{2}");
+        Matcher matcher = pattern.matcher(text);
+        while (matcher.find()) {
+            result = Double.parseDouble(matcher.group().replace(" ", "").replace(",", "."));
         }
         return result;
     }
