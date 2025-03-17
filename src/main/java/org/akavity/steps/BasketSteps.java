@@ -12,7 +12,7 @@ public class BasketSteps {
 
     @Step
     public double getFinalPrice() {
-        utils.sleep(1500);
+        utils.sleep(2000);
         double price = utils.extractDoubleFromText(basketPage.getFinalPriceField().text());
         log.info("Get final price: {}", price);
         return price;

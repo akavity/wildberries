@@ -11,7 +11,7 @@ public class GeoPage {
     private final SelenideElement geoTitleField = $(By.xpath("//h2[contains(text(),'способ доставки')]"));
     private final SelenideElement pickUpPointButton = $(By.xpath("//div[contains(@class,'geo-block__info')]//span[contains(text(),'Пункт выдачи')]"));
     private final SelenideElement deliveryButton = $(By.xpath("//div[contains(@class,'geo-block__info')]//span[contains(text(),'Курьером')]"));
-    private final ElementsCollection pickUpPointButtons = $$(By.cssSelector("div[class*='address-item j']"));
+    private final ElementsCollection pickUpPointButtons = $$(By.cssSelector("div[id='pooList'] div[class*='poo-option']"));
 
     public SelenideElement getAddressButton(String address) {
         return $(By.xpath("//span[contains(@class,'address-item__n')]/span[contains(text(),'" + address + "')]/../../.."));
