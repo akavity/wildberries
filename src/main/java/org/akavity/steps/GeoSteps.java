@@ -22,6 +22,7 @@ public class GeoSteps {
 
     @Step
     public void clickFirstPickupPoint() {
+        utils.sleep(1500);
         log.info("CLick first pickup point");
         geoPage.getPickUpPointButtons().first().shouldBe(clickable).click();
     }
