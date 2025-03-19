@@ -15,6 +15,11 @@
                     <include name="selectPromotion"/>
                 </methods>
             </class>
+            <class name="org.akavity.tests.FAQTest">
+                <methods>
+                    <include name="selectFAQ"/>
+                </methods>
+            </class>
         </classes>
     </test>
     <test name="SecondTest">

@@ -14,6 +14,7 @@
 * Test 10. Open product popup.
 * Test 11. Look at questions.
 * Test 12. Add product to basket.
+* Test 13. Select frequently asked question.
 
 ## Technologies:
 
