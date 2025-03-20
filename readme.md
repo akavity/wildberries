@@ -15,6 +15,7 @@
 * Test 11. Look at questions.
 * Test 12. Add product to basket.
 * Test 13. Select frequently asked question.
+* Test 14. Check refund information.
 
 ## Technologies:
 
