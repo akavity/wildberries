@@ -39,4 +39,19 @@ public class InfoSteps {
         log.info("Click FAQ");
         infoPage.getFAQ(question).click();
     }
+
+    @Step
+    public void clickDropDownTitle(String title) {
+        log.info("Click dropdown title: {}", title);
+        switchTo().frame(infoPage.getServiceIframe());                     // Service iframe
+        infoPage.getDropDownTitle(title).click();
+    }
+
+    @Step
+    public boolean isDropDownContentDisplayed(String title, String cont) {
+        utils.sleep(500);
+        boolean result = infoPage.getDropDownContent(title, cont).isDisplayed();
+        log.info("Dropdown content displayed: {}", result);
+        return result;
+    }
 }
