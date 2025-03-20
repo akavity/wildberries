@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RefundData {
+public class RefundPaymentData {
     String menuItem;
     String title;
     String content;

@@ -43,13 +43,16 @@ public class InfoSteps {
     @Step
     public void clickDropDownTitle(String title) {
         log.info("Click dropdown title: {}", title);
-        switchTo().frame(infoPage.getServiceIframe());                     // Service iframe
+        utils.sleep(1000);
+        if (infoPage.getServiceIframe().exists()) {
+            switchTo().frame(infoPage.getServiceIframe());                     // Service iframe
+        }
         infoPage.getDropDownTitle(title).click();
     }
 
     @Step
     public boolean isDropDownContentDisplayed(String title, String cont) {
-        utils.sleep(500);
+        utils.sleep(1000);
         boolean result = infoPage.getDropDownContent(title, cont).isDisplayed();
         log.info("Dropdown content displayed: {}", result);
         return result;

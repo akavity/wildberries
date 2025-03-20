@@ -11,4 +11,5 @@ public class FaqData {
     String serviceMenuItem;
     String faqMenuItem;
     String title;
+    String content;
 }

@@ -18,7 +18,7 @@
             <class name="org.akavity.tests.FAQTest">
                 <methods>
                     <include name="selectFAQ"/>
-                    <include name="checkRefundInfo"/>
+                    <include name="checkRefundAndPaymentInfo"/>
                 </methods>
             </class>
         </classes>
