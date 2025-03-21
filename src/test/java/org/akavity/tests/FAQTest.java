@@ -9,7 +9,7 @@ import org.akavity.utils.JsonReader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class FAQTest extends OldBaseTest {
+public class FAQTest extends BaseTest {
     HeaderSteps headerSteps = new HeaderSteps();
     InfoSteps infoSteps = new InfoSteps();
 
