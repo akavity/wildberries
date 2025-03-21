@@ -1,4 +1,4 @@
-package org.akavity.models;
+package org.akavity.models.faqTest;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,9 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PromotionData {
-    String mainListItem;
-    String firstDropListItem;
-    String secondDropListItem;
+public class RefundPaymentData {
+    String menuItem;
     String title;
+    String content;
 }

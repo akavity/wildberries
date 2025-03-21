@@ -1,4 +1,4 @@
-package org.akavity.models;
+package org.akavity.models.sortTest;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,12 +7,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class LocalWarehouseData {
+public class PriceData {
     String mainListItem;
     String firstDropListItem;
     String secondDropListItem;
-    String firstContentItem;
-    String secondContentItem;
-    String thirdContentItem;
-    String title;
+    String button;
+    String minPrice;
+    String maxPrice;
 }

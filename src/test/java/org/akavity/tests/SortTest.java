@@ -1,7 +1,7 @@
 package org.akavity.tests;
 
 import org.akavity.annotations.TestData;
-import org.akavity.models.PriceData;
+import org.akavity.models.sortTest.PriceData;
 import org.akavity.steps.CatalogSteps;
 import org.akavity.steps.FilterDropDownSteps;
 import org.akavity.steps.HeaderSteps;
@@ -16,7 +16,7 @@ public class SortTest extends BaseTest {
     FilterDropDownSteps filterDDSteps = new FilterDropDownSteps();
     CatalogSteps catalogSteps = new CatalogSteps();
 
-    @TestData(jsonFile = "priceData", model = "PriceData")
+    @TestData(jsonFile = "priceData", model = "PriceData", folder = "sortTest")
     @Test(description = "Check that product prices are within the limit", dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void sortProductsByPrice(PriceData price) {
         headerSteps.clickCatalogButton();

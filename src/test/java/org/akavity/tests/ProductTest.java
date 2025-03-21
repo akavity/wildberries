@@ -1,7 +1,7 @@
 package org.akavity.tests;
 
 import org.akavity.annotations.TestData;
-import org.akavity.models.SearchData;
+import org.akavity.models.productTest.SearchData;
 import org.akavity.steps.*;
 import org.akavity.utils.JsonReader;
 import org.testng.Assert;
@@ -15,7 +15,7 @@ public class ProductTest extends BaseTest {
     HeaderSteps headerSteps = new HeaderSteps();
     BasketSteps basketSteps = new BasketSteps();
 
-    @TestData(jsonFile = "searchData", model = "SearchData")
+    @TestData(jsonFile = "searchData", model = "SearchData", folder = "productTest")
     @Test(description = "Search by product name", dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void productSearch(SearchData searchData) {
         headerSteps.enterTextInSearchField(searchData.getText());

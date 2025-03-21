@@ -9,5 +9,8 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 public @interface TestData {
     String jsonFile();
+
     String model();
+
+    String folder();
 }
