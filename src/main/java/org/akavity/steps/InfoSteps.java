@@ -51,10 +51,29 @@ public class InfoSteps {
     }
 
     @Step
+    public void clickSearchDropDownTitle() {
+        log.info("Click first search dropdown title");
+        infoPage.getSearchDropDownTitles().first().click();
+    }
+
+    @Step
     public boolean isDropDownContentDisplayed(String title, String cont) {
         utils.sleep(1000);
         boolean result = infoPage.getDropDownContent(title, cont).isDisplayed();
         log.info("Dropdown content displayed: {}", result);
         return result;
+    }
+
+    @Step
+    public void enterTextIntoSearchField(String text) {
+        switchTo().frame(infoPage.getServiceIframe());
+        log.info("Enter text into the search field: {}", text);
+        infoPage.getSearchField().setValue(text).pressEnter();
+    }
+
+    @Step
+    public void clickFirstSearchResultButton() {
+        log.info("Click the first button from the search results buttons");
+        infoPage.getSearchResultButtons().first().click();
     }
 }

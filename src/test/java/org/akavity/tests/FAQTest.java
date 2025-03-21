@@ -2,6 +2,7 @@ package org.akavity.tests;
 
 import org.akavity.annotations.TestData;
 import org.akavity.models.faqTest.FaqData;
+import org.akavity.models.faqTest.QuestionData;
 import org.akavity.models.faqTest.RefundPaymentData;
 import org.akavity.steps.HeaderSteps;
 import org.akavity.steps.InfoSteps;
@@ -32,5 +33,17 @@ public class FAQTest extends BaseTest {
         infoSteps.clickDropDownTitle(refundPayment.getTitle());              // with iframe
 
         Assert.assertTrue(infoSteps.isDropDownContentDisplayed(refundPayment.getTitle(), refundPayment.getContent()));
+    }
+
+    @TestData(jsonFile = "questionData", model = "QuestionData", folder = "faqTest")
+    @Test(description = "Search for a question in the frequently asked questions", dataProviderClass = JsonReader.class, dataProvider = "getData")
+    public void searchForQuestion(QuestionData questionData) {
+        headerSteps.clickAddressButton();
+        infoSteps.clickServiceMenuItem(questionData.getMenuItem());
+        infoSteps.enterTextIntoSearchField(questionData.getSearchField());
+        infoSteps.clickFirstSearchResultButton();
+        infoSteps.clickSearchDropDownTitle();
+
+        Assert.assertTrue(infoSteps.isFAQTitleDisplayed(questionData.getTitle()));
     }
 }

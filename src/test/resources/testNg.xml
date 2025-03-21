@@ -19,6 +19,7 @@
                 <methods>
                     <include name="selectFAQ"/>
                     <include name="checkRefundAndPaymentInfo"/>
+                    <include name="searchForQuestion"/>
                 </methods>
             </class>
         </classes>

@@ -1,9 +1,11 @@
 package org.akavity.pages;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 public class InfoPage {
     public SelenideElement getServiceMenuItem(String item) {
@@ -24,7 +26,7 @@ public class InfoPage {
     }
 
     public SelenideElement getFAQTitle(String title) {
-        return $(By.xpath("//div[contains(@class,'faq-contain')]//h1[contains(text(),'\" + title + \"')]"));
+        return $(By.xpath("//div[contains(@class,'faq-contain')]//h1[contains(text(),'" + title + "')]"));
     }
 
     public SelenideElement getFAQ(String q) {
@@ -33,7 +35,25 @@ public class InfoPage {
 
     private final SelenideElement serviceIframe = $(By.cssSelector("iframe[id='pageInfoIfr']"));
 
+    private final SelenideElement searchField = $(By.cssSelector("input[class='faq-search-input']"));
+
+    private final ElementsCollection searchResultButtons = $$(By.cssSelector("ul[class*='search-results'] li"));
+
+    private final ElementsCollection searchDropDownTitles = $$(By.cssSelector("div[id='search-selection'] div[class='faq-dropdown-item']"));
+
     public SelenideElement getServiceIframe() {
         return serviceIframe;
+    }
+
+    public SelenideElement getSearchField() {
+        return searchField;
+    }
+
+    public ElementsCollection getSearchResultButtons() {
+        return searchResultButtons;
+    }
+
+    public ElementsCollection getSearchDropDownTitles() {
+        return searchDropDownTitles;
     }
 }
