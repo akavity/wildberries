@@ -24,16 +24,16 @@ public class ProductTest extends BaseTest {
         Assert.assertTrue(catalogSteps.doProductNamesContainText(searchData.getText()));
     }
 
-    @Test(description = "Look at reviews")
-    public void lookAtReviews() {
+    @Test(description = "View reviews")
+    public void viewReviews() {
         catalogSteps.selectFirstProductCard();
         productSteps.clickViewAllCommentsButton();
 
         Assert.assertTrue(userActivitySteps.isFeedbackButtonDisplayed());
     }
 
-    @Test(description = "Look at Questions")
-    public void lookAtQuestions() {
+    @Test(description = "View Questions")
+    public void viewQuestions() {
         catalogSteps.selectFirstProductCard();
         productSteps.clickQuestionsButton();
         productSteps.clickViewAllQuestionButton();

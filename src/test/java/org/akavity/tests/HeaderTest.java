@@ -36,14 +36,14 @@ public class HeaderTest extends BaseTest {
     }
 
     @TestData(jsonFile = "currencyData", model = "CurrencyData", folder = "headerTest")
-    @Test(description = "Select currency", dataProviderClass = JsonReader.class, dataProvider = "getData")
-    public void selectCurrency(CurrencyData currencyData) {
+    @Test(description = "Select a currency type", dataProviderClass = JsonReader.class, dataProvider = "getData")
+    public void selectCurrencyType(CurrencyData currencyData) {
         headerSteps.selectCurrency(currencyData.getCurrency());
 
         Assert.assertTrue(catalogSteps.isCurrencyCorrect(currencyData.getSymbol()));
     }
 
-    @Test(description = "Select pick up point")
+    @Test(description = "Select a pickup point")
     public void selectPickUpPoint() {
         headerSteps.clickGeolocationButton();
         geoSteps.clickFirstPickupPoint();
@@ -52,8 +52,8 @@ public class HeaderTest extends BaseTest {
     }
 
     @TestData(jsonFile = "localWarehouseData", model = "LocalWarehouseData", folder = "headerTest")
-    @Test(description = "Select local warehouse product", dataProviderClass = JsonReader.class, dataProvider = "getData")
-    public void selectLocalWarehouseProduct(LocalWarehouseData belGoods) {
+    @Test(description = "Select a product from the local warehouse", dataProviderClass = JsonReader.class, dataProvider = "getData")
+    public void selectProductFromLocalWarehouse(LocalWarehouseData belGoods) {
         headerSteps.clickCatalogButton();
         navigationSteps.hoverMainListItem(belGoods.getMainListItem());
         navigationSteps.clickDropListItem(belGoods.getMainListItem(), belGoods.getFirstDropListItem(), belGoods.getSecondDropListItem());

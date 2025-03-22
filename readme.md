@@ -6,21 +6,23 @@
 * Test 2. Checking product sorting by price.
 * Test 3. Product search.
 * Test 4. Service menu navigation.
-* Test 5. Select a currency.
+* Test 5. Select a currency type.
 * Test 6. Select a pickup point.
-* Test 7. Select a local warehouse product.
+* Test 7. Select a product from the local warehouse.
 * Test 8. Select a promotion.
-* Test 9. Look at reviews.
+* Test 9. View reviews.
 * Test 10. Open product popup.
-* Test 11. Look at questions.
+* Test 11. View questions.
 * Test 12. Add product to basket.
-* Test 13. Select frequently asked question.
+* Test 13. Select a frequently asked question.
 * Test 14. Check information about refund and payment methods.
 * Test 15. Search for a question in FAQ.
+
 
 ## Technologies:
 
 * Java 17
+* Maven
 * TestNG 7.10.2
 * Selenide 7.7.1
 * Allure 2.29.1
