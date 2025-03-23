@@ -1,7 +1,7 @@
 package org.akavity.tests;
 
 import org.akavity.annotations.TestData;
-import org.akavity.models.SearchData;
+import org.akavity.models.productTest.SearchData;
 import org.akavity.steps.*;
 import org.akavity.utils.JsonReader;
 import org.testng.Assert;
@@ -15,7 +15,7 @@ public class ProductTest extends BaseTest {
     HeaderSteps headerSteps = new HeaderSteps();
     BasketSteps basketSteps = new BasketSteps();
 
-    @TestData(jsonFile = "searchData", model = "SearchData")
+    @TestData(jsonFile = "searchData", model = "SearchData", folder = "productTest")
     @Test(description = "Search by product name", dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void productSearch(SearchData searchData) {
         headerSteps.enterTextInSearchField(searchData.getText());
@@ -24,16 +24,16 @@ public class ProductTest extends BaseTest {
         Assert.assertTrue(catalogSteps.doProductNamesContainText(searchData.getText()));
     }
 
-    @Test(description = "Look at reviews")
-    public void lookAtReviews() {
+    @Test(description = "View reviews")
+    public void viewReviews() {
         catalogSteps.selectFirstProductCard();
         productSteps.clickViewAllCommentsButton();
 
         Assert.assertTrue(userActivitySteps.isFeedbackButtonDisplayed());
     }
 
-    @Test(description = "Look at Questions")
-    public void lookAtQuestions() {
+    @Test(description = "View Questions")
+    public void viewQuestions() {
         catalogSteps.selectFirstProductCard();
         productSteps.clickQuestionsButton();
         productSteps.clickViewAllQuestionButton();

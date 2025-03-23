@@ -1,7 +1,7 @@
 package org.akavity.tests;
 
 import org.akavity.annotations.TestData;
-import org.akavity.models.*;
+import org.akavity.models.headerTest.*;
 import org.akavity.steps.*;
 import org.akavity.utils.JsonReader;
 import org.testng.Assert;
@@ -15,7 +15,7 @@ public class HeaderTest extends BaseTest {
     PromoSteps promoSteps = new PromoSteps();
 
 
-    @TestData(jsonFile = "catalogData", model = "CatalogData")
+    @TestData(jsonFile = "catalogData", model = "CatalogData", folder = "headerTest")
     @Test(description = "Catalog navigation", dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void catalogNavigation(CatalogData catalog) {
         headerSteps.clickCatalogButton();
@@ -26,7 +26,7 @@ public class HeaderTest extends BaseTest {
         Assert.assertEquals(actual, catalog.getTitle());
     }
 
-    @TestData(jsonFile = "serviceMenuData", model = "ServiceMenuData")
+    @TestData(jsonFile = "serviceMenuData", model = "ServiceMenuData", folder = "headerTest")
     @Test(description = "Service menu navigation", dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void serviceMenuNavigation(ServiceMenuData serviceMenuData) {
         headerSteps.clickAddressButton();
@@ -35,15 +35,15 @@ public class HeaderTest extends BaseTest {
         Assert.assertTrue(headerSteps.isTitleVDisplayed(serviceMenuData.getTitle()));
     }
 
-    @TestData(jsonFile = "currencyData", model = "CurrencyData")
-    @Test(description = "Select currency", dataProviderClass = JsonReader.class, dataProvider = "getData")
-    public void selectCurrency(CurrencyData currencyData) {
+    @TestData(jsonFile = "currencyData", model = "CurrencyData", folder = "headerTest")
+    @Test(description = "Select a currency type", dataProviderClass = JsonReader.class, dataProvider = "getData")
+    public void selectCurrencyType(CurrencyData currencyData) {
         headerSteps.selectCurrency(currencyData.getCurrency());
 
         Assert.assertTrue(catalogSteps.isCurrencyCorrect(currencyData.getSymbol()));
     }
 
-    @Test(description = "Select pick up point")
+    @Test(description = "Select a pickup point")
     public void selectPickUpPoint() {
         headerSteps.clickGeolocationButton();
         geoSteps.clickFirstPickupPoint();
@@ -51,9 +51,9 @@ public class HeaderTest extends BaseTest {
         Assert.assertTrue(geoSteps.isPickupPointTitleDisplayed());
     }
 
-    @TestData(jsonFile = "localWarehouseData", model = "LocalWarehouseData")
-    @Test(description = "Select local warehouse product", dataProviderClass = JsonReader.class, dataProvider = "getData")
-    public void selectLocalWarehouseProduct(LocalWarehouseData belGoods) {
+    @TestData(jsonFile = "localWarehouseData", model = "LocalWarehouseData", folder = "headerTest")
+    @Test(description = "Select a product from the local warehouse", dataProviderClass = JsonReader.class, dataProvider = "getData")
+    public void selectProductFromLocalWarehouse(LocalWarehouseData belGoods) {
         headerSteps.clickCatalogButton();
         navigationSteps.hoverMainListItem(belGoods.getMainListItem());
         navigationSteps.clickDropListItem(belGoods.getMainListItem(), belGoods.getFirstDropListItem(), belGoods.getSecondDropListItem());
@@ -63,7 +63,7 @@ public class HeaderTest extends BaseTest {
         Assert.assertEquals(actual, belGoods.getTitle());
     }
 
-    @TestData(jsonFile = "promotionData", model = "PromotionData")
+    @TestData(jsonFile = "promotionData", model = "PromotionData", folder = "headerTest")
     @Test(description = "Select a promotion", dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void selectPromotion(PromotionData promotion) {
         headerSteps.clickCatalogButton();

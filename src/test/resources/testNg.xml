@@ -9,10 +9,17 @@
                 <methods>
                     <include name="catalogNavigation"/>
                     <include name="serviceMenuNavigation"/>
-                    <include name="selectCurrency"/>
+                    <include name="selectCurrencyType"/>
                     <include name="selectPickUpPoint"/>
-                    <include name="selectLocalWarehouseProduct"/>
+                    <include name="selectProductFromLocalWarehouse"/>
                     <include name="selectPromotion"/>
+                </methods>
+            </class>
+            <class name="org.akavity.tests.FAQTest">
+                <methods>
+                    <include name="selectFAQ"/>
+                    <include name="checkRefundAndPaymentInfo"/>
+                    <include name="searchForQuestion"/>
                 </methods>
             </class>
         </classes>
@@ -30,8 +37,8 @@
             <class name="org.akavity.tests.ProductTest">
                 <methods>
                     <include name="productSearch"/>
-                    <include name="lookAtReviews"/>
-                    <include name="lookAtQuestions"/>
+                    <include name="viewReviews"/>
+                    <include name="viewQuestions"/>
                     <include name="openProductPopup"/>
                     <include name="addProductToBasket"/>
                 </methods>
