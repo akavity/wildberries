@@ -13,7 +13,7 @@ import org.akavity.utils.JsonReader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class HeaderTest extends OldBaseTest {
+public class HeaderTest extends BaseTest {
     HeaderSteps headerSteps = new HeaderSteps();
     NavigationSteps navigationSteps = new NavigationSteps();
     CatalogSteps catalogSteps = new CatalogSteps();
