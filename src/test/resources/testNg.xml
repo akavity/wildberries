@@ -8,7 +8,6 @@
             <class name="org.akavity.tests.HeaderTest">
                 <methods>
                     <include name="catalogNavigation"/>
-                    <include name="serviceMenuNavigation"/>
                     <include name="selectCurrencyType"/>
                     <include name="selectPickUpPoint"/>
                     <include name="selectProductFromLocalWarehouse"/>
@@ -20,6 +19,7 @@
                     <include name="selectFAQ"/>
                     <include name="checkRefundAndPaymentInfo"/>
                     <include name="searchForQuestion"/>
+                    <include name="serviceMenuNavigation"/>
                 </methods>
             </class>
         </classes>
