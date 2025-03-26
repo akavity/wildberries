@@ -4,7 +4,7 @@ import org.akavity.annotations.TestData;
 import org.akavity.models.faqTest.FaqData;
 import org.akavity.models.faqTest.QuestionData;
 import org.akavity.models.faqTest.RefundPaymentData;
-import org.akavity.models.headerTest.ServiceMenuData;
+import org.akavity.models.faqTest.ServiceMenuData;
 import org.akavity.steps.HeaderSteps;
 import org.akavity.steps.InfoSteps;
 import org.akavity.utils.JsonReader;
@@ -48,7 +48,7 @@ public class FAQTest extends BaseTest {
         Assert.assertTrue(infoSteps.isFAQTitleDisplayed(questionData.getTitle()));
     }
 
-    @TestData(jsonFile = "serviceMenuData", model = "ServiceMenuData", folder = "headerTest")
+    @TestData(jsonFile = "serviceMenuData", model = "ServiceMenuData", folder = "faqTest")
     @Test(description = "Service menu navigation", dataProviderClass = JsonReader.class, dataProvider = "getData")
     public void serviceMenuNavigation(ServiceMenuData serviceMenuData) {
         headerSteps.clickAddressButton();
