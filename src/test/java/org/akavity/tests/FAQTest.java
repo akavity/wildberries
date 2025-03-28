@@ -23,7 +23,7 @@ public class FAQTest extends BaseTest {
         infoSteps.clickFAQMenuItem(faqData.getFaqMenuItem());
         infoSteps.clickDropDownTitle(faqData.getTitle());                    // without iframe
 
-        Assert.assertTrue(infoSteps.isDropDownContentDisplayed(faqData.getTitle(), faqData.getContent()));
+        Assert.assertTrue(infoSteps.isDropDownContentDisplayed(faqData.getContent()));
     }
 
     @TestData(jsonFile = "refundPaymentData", model = "RefundPaymentData", folder = "faqTest")
@@ -33,7 +33,7 @@ public class FAQTest extends BaseTest {
         infoSteps.clickServiceMenuItem(refundPayment.getMenuItem());
         infoSteps.clickDropDownTitle(refundPayment.getTitle());              // with iframe
 
-        Assert.assertTrue(infoSteps.isDropDownContentDisplayed(refundPayment.getTitle(), refundPayment.getContent()));
+        Assert.assertTrue(infoSteps.isDropDownContentDisplayed(refundPayment.getContent()));
     }
 
     @TestData(jsonFile = "questionData", model = "QuestionData", folder = "faqTest")
