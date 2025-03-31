@@ -5,7 +5,9 @@ import lombok.extern.log4j.Log4j2;
 import org.akavity.pages.GeoPage;
 import org.akavity.utils.Utils;
 
-import static com.codeborne.selenide.Condition.clickable;
+import java.time.Duration;
+
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.visible;
 
 @Log4j2
@@ -24,7 +26,7 @@ public class GeoSteps {
     public void clickFirstPickupPoint() {
         utils.sleep(3000);
         log.info("CLick first pickup point");
-        geoPage.getPickUpPointButtons().first().click();
+        geoPage.getPickUpPointButtons().shouldHave(sizeGreaterThan(0), Duration.ofSeconds(5)).first().click();
     }
 
     @Step
