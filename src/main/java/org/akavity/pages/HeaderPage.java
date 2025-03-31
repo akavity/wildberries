@@ -37,7 +37,7 @@ public class HeaderPage {
     }
 
     public SelenideElement getMailList() {
-        return getMailList();
+        return mailList;
     }
 
     public SelenideElement getSearchField() {
