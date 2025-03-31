@@ -22,7 +22,7 @@ public class NavigationSteps {
     @Step
     public void hoverMainListItem(String item) {
         log.info("Hover main-list item: {}", item);
-        navigationPage.getMailListElement().shouldBe(visible, Duration.ofSeconds(8));
+        navigationPage.getMailListElement().shouldBe(visible, Duration.ofSeconds(5));
         navigationPage.getMainListItem(item).scrollTo();
         navigationPage.getMainListItem(item).hover();
     }
