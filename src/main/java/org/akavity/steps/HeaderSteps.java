@@ -16,14 +16,9 @@ public class HeaderSteps {
 
     @Step
     public void clickCatalogButton() {
-        utils.sleep(1500);
+        utils.sleep(1600);
         log.info("Click catalog button");
         headerPage.getCatalogButton().shouldBe(clickable).click();
-        if(!headerPage.getMailList().isDisplayed()) {
-            log.info("Click catalog button isn't displayed");
-            utils.sleep(2000);
-            headerPage.getCatalogButton().click();
-        }
     }
 
     @Step
