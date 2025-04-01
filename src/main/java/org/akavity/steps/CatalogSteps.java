@@ -115,4 +115,26 @@ public class CatalogSteps {
             log.info("Popup block isn't displayed");
         }
     }
+
+    @Step
+    public boolean checkSortByAscendingPrice(int elements) {
+        utils.sleep(1500);
+        boolean result = utils.isSortedAscending(getProductPrices(elements));
+        log.info("Are first \" {} \" products sorted correctly in ascending price order?: {}", elements, result);
+        return result;
+    }
+
+    @Step
+    public boolean checkSortByDecreasingPrice(int elements) {
+        utils.sleep(1500);
+        boolean result = utils.isSortedDecreasing(getProductPrices(elements));
+        log.info("Are first \" {} \" products sorted correctly in decreasing price order?: {}", elements, result);
+        return result;
+    }
+
+    private List<Double> getProductPrices(int elements) {
+        return catalogPage.getPricesFields().first(elements).texts().stream()
+                .map(x -> utils.extractDoubleFromText(x))
+                .peek(x -> log.info("price: {}", x)).toList();
+    }
 }
