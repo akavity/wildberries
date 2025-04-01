@@ -51,6 +51,7 @@ public class Utils {
         for (int i = 0; i < list.size() - 1; i++) {
             if (list.get(i) > list.get(i + 1)) {
                 result = false;
+                break;
             }
         }
         return result;
@@ -61,6 +62,7 @@ public class Utils {
         for (int i = 0; i < list.size() - 1; i++) {
             if (list.get(i) < list.get(i + 1)) {
                 result = false;
+                break;
             }
         }
         return result;

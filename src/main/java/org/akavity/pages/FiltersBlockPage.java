@@ -5,13 +5,14 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class FilterDropDownPage {
+public class FiltersBlockPage {
     private final SelenideElement minPrice = $(By.cssSelector("div[class*='filter__price'] input[name*='start']"));
     private final SelenideElement maxPrice = $(By.cssSelector("div[class*='filter__price'] input[name*='end']"));
     private final SelenideElement priceReadyButton = $(By.xpath("//button[contains(@class,'filter-btn') and contains(.,'Готово')]"));
+    private final SelenideElement sorterButton = $(By.cssSelector("button[class*='sorter']"));
 
     public SelenideElement getButton(String name) {
-        return $(By.xpath("//div[contains(@class,'filter__btn') and contains(.,'" + name + "')]"));
+        return $(By.xpath("//button[contains(@class,'filter__btn') and contains(.,'" + name + "')]"));
     }
 
     public SelenideElement getRadioButton(String name) {
@@ -32,5 +33,9 @@ public class FilterDropDownPage {
 
     public SelenideElement getPriceReadyButton() {
         return priceReadyButton;
+    }
+
+    public SelenideElement getSorterButton() {
+        return sorterButton;
     }
 }

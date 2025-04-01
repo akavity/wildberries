@@ -2,16 +2,16 @@ package org.akavity.steps;
 
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
-import org.akavity.pages.FilterDropDownPage;
+import org.akavity.pages.FiltersBlockPage;
 import org.akavity.utils.Utils;
 
 @Log4j2
-public class FilterDropDownSteps {
-    FilterDropDownPage filter = new FilterDropDownPage();
+public class FiltersBlockSteps {
+    FiltersBlockPage filter = new FiltersBlockPage();
     Utils utils = new Utils();
 
     @Step
-    public void clickButtonDDF(String button) {
+    public void clickFilterButton(String button) {
         log.info("Click dropdown-filter button: {}", button);
         filter.getButton(button).hover().click();
     }
