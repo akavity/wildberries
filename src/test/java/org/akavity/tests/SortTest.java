@@ -3,6 +3,7 @@ package org.akavity.tests;
 import org.akavity.annotations.TestData;
 import org.akavity.models.sortTest.AscendingPriceData;
 import org.akavity.models.sortTest.DecreasingPriceData;
+import org.akavity.models.sortTest.NoveltyData;
 import org.akavity.models.sortTest.PriceData;
 import org.akavity.steps.CatalogSteps;
 import org.akavity.steps.FiltersBlockSteps;
@@ -52,5 +53,17 @@ public class SortTest extends BaseTest {
         filtersBlockSteps.selectSortType(decreasingPrice.getSortType());
 
         Assert.assertTrue(catalogSteps.checkSortByDecreasingPrice(decreasingPrice.getElements()));
+    }
+
+    @TestData(jsonFile = "noveltyData", model = "NoveltyData", folder = "sortTest")
+    @Test(description = "Sort products by newness", dataProviderClass = JsonReader.class, dataProvider = "getData")
+    public void sortByNewness(NoveltyData noveltyData) {
+        headerSteps.clickCatalogButton();
+        navigationSteps.clickMainListItem(noveltyData.getMainListItem());
+        navigationSteps.clickDropListItem(noveltyData.getMainListItem(), noveltyData.getFirstDropListItem(), noveltyData.getSecondDropListItem());
+        filtersBlockSteps.clickSorterButton();
+        filtersBlockSteps.selectSortType(noveltyData.getSortType());
+
+        Assert.assertTrue(catalogSteps.checkNewTips(noveltyData.getElements()));
     }
 }
