@@ -33,6 +33,7 @@
                 <methods>
                     <include name="sortProductsByPrice"/>
                     <include name="sortByAscendingPrice"/>
+                    <include name="sortByDecreasingPrice"/>
                 </methods>
             </class>
             <class name="org.akavity.tests.ProductTest">
