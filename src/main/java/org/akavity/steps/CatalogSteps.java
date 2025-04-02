@@ -1,6 +1,7 @@
 package org.akavity.steps;
 
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.akavity.pages.CatalogPage;
@@ -108,7 +109,6 @@ public class CatalogSteps {
         utils.sleep(1500);
         boolean popUp = catalogPage.getPopupBlock().isDisplayed();
         if (popUp) {
-
             log.info("Popup block is displayed. Click first button of size list");
             catalogPage.getSizeListButtons().first().click();
         } else {
@@ -132,9 +132,18 @@ public class CatalogSteps {
         return result;
     }
 
+    @Step
+    public boolean checkNewTips(int elements) {
+        utils.sleep(1500);
+        return catalogPage.getNewTips().first(elements).stream()
+                .map(SelenideElement::getText)
+                .peek(x-> log.info("tip contain text: {}", x))
+                .allMatch(x-> x.equalsIgnoreCase("new"));
+    }
+
     private List<Double> getProductPrices(int elements) {
         return catalogPage.getPricesFields().first(elements).texts().stream()
                 .map(x -> utils.extractDoubleFromText(x))
-                .peek(x -> log.info("price: {}", x)).toList();
+                .peek(x -> log.info("product price: {}", x)).toList();
     }
 }
