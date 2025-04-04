@@ -35,7 +35,7 @@ public class Utils {
 
     public double extractDoubleFromText(String text) {
         double result = 0.0;
-        Pattern pattern = Pattern.compile("\\d?[  ]?\\d+[,.]\\d{2}");
+        Pattern pattern = Pattern.compile("\\d?[  ]?\\d+([,.]\\d{1,2})?");
         Matcher matcher = pattern.matcher(text);
         while (matcher.find()) {
             result = Double.parseDouble(matcher.group()
