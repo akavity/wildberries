@@ -137,8 +137,18 @@ public class CatalogSteps {
         utils.sleep(1500);
         return catalogPage.getNewTips().first(elements).stream()
                 .map(SelenideElement::getText)
-                .peek(x-> log.info("tip contain text: {}", x))
-                .allMatch(x-> x.equalsIgnoreCase("new"));
+                .peek(x -> log.info("tip contain text: {}", x))
+                .allMatch(x -> x.equalsIgnoreCase("new"));
+    }
+
+    @Step
+    public boolean checkRatingTips(int elements, double minRating) {
+        utils.sleep(1500);
+        return catalogPage.getProductRatings().first(elements).stream()
+                .map(SelenideElement::getText)
+                .map(utils::extractDoubleFromText)
+                .peek(x -> log.info("tip contain rating: {}", x))
+                .allMatch(x -> x >= minRating);
     }
 
     private List<Double> getProductPrices(int elements) {
