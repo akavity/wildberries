@@ -151,6 +151,15 @@ public class CatalogSteps {
                 .allMatch(x -> x >= minRating);
     }
 
+    @Step
+    public boolean checkSaleTips(int elements) {
+        utils.sleep(1500);
+        return catalogPage.getSaleTips().first(elements).stream()
+                .map(SelenideElement::getText)
+                .peek(x -> log.info("Sale tip contains: {}", x))
+                .allMatch(x -> x.contains("%"));
+    }
+
     private List<Double> getProductPrices(int elements) {
         return catalogPage.getPricesFields().first(elements).texts().stream()
                 .map(x -> utils.extractDoubleFromText(x))
