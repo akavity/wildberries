@@ -13,12 +13,15 @@
 * Test 9. Open product popup.
 * Test 10. View questions.
 * Test 11. Add product to basket.
-* Test 12. Select a frequently asked question.
+* Test 12. Select a frequently asked question (FAQ).
 * Test 13. Check information about refund and payment methods.
 * Test 14. Search for a question in FAQ.
 * Test 15. Sort products by price within set limits.
 * Test 16. Sort products by ascending price.
 * Test 17. Sort products by decreasing price.
+* Test 18. Sort products by newness.
+* Test 19. Sort products by rating.
+* Test 20. Sort products by benefit.
 
 
 ## Technologies:

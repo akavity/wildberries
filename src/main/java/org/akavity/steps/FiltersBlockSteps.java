@@ -27,6 +27,7 @@ public class FiltersBlockSteps {
     public void selectSortType(String type) {
         log.info("Select sort type: {}", type);
         filter.getRadioButton(type).click();
+        filter.getTitleField().click();
     }
 
     @Step
