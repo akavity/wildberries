@@ -75,4 +75,16 @@ public class SortTest extends BaseTest {
 
         Assert.assertTrue(catalogSteps.checkRatingTips(ratingData.getElements(), ratingData.getMinRating()));
     }
+
+    @TestData(jsonFile = "benefitData", model = "BenefitData", folder = "sortTest")
+    @Test(description = "Sort products by benefit", dataProviderClass = JsonReader.class, dataProvider = "getData")
+    public void sortByBenefit(BenefitData benefitData) {
+        headerSteps.clickCatalogButton();
+        navigationSteps.clickMainListItem(benefitData.getMainListItem());
+        navigationSteps.clickDropListItem(benefitData.getMainListItem(), benefitData.getFirstDropListItem(), benefitData.getSecondDropListItem());
+        filtersBlockSteps.clickSorterButton();
+        filtersBlockSteps.selectSortType(benefitData.getSortType());
+
+        Assert.assertTrue(catalogSteps.checkSaleTips(benefitData.getElements()));
+    }
 }

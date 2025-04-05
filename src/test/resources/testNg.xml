@@ -36,6 +36,7 @@
                     <include name="sortByDecreasingPrice"/>
                     <include name="sortByNewness"/>
                     <include name="sortByRating"/>
+                    <include name="sortByBenefit"/>
                 </methods>
             </class>
             <class name="org.akavity.tests.ProductTest">
